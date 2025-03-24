@@ -1,0 +1,9 @@
+<resources>
+    <color name="black">#121212</color> <!-- Dark Grayish Black -->
+    <color name="white">#FFFFFF</color> <!-- Pure White -->
+    <color name="primary">#00C853</color> <!-- Neon Green (Pool Table) -->
+    <color name="background">#F5F5F5</color> <!-- Light Background -->
+    <color name="gray">#616161</color> <!-- Dark Gray for Text -->
+    <color name="inputBackground">#EEEEEE</color> <!-- Light Gray for Input Fields -->
+    <color name="inputText">#000000</color> <!-- Black Text -->
+</resources>
