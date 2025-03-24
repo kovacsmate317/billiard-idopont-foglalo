@@ -1,0 +1,16 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.Billiardfoglalo" parent="Theme.MaterialComponents.DayNight">
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="android:colorBackground">@color/background</item>
+        <item name="android:textColor">@color/gray</item>
+        <item name="editTextStyle">@style/EditTextStyle</item>
+    </style>
+
+    <style name="EditTextStyle">
+        <item name="android:background">@color/inputBackground</item>
+        <item name="android:textColor">@color/inputText</item>
+        <item name="android:padding">10dp</item>
+    </style>
+</resources>
