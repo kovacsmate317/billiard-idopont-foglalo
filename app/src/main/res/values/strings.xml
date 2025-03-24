@@ -1,6 +1,15 @@
 <resources>
     <string name="app_name">Billiard-foglalo</string>
-    <string name="formUsernameHint">Felhasználónév</string>
+    <string name="formEmailHint">E-mail cím</string>
     <string name="formPasswordHint">Jelszó</string>
-    <string name="formLoginText">Bejelentkezés</string>
+    <string name="login">Bejelentkezés</string>
+    <string name="register">Regisztráció</string>
+    <string name="email">E-mail cím</string>
+    <string name="fullName">Teljes név</string>
+    <string name="password">Jelszó</string>
+    <string name="passwordAgain">Jelszó újra</string>
+    <string name="phone">Telefonszám</string>
+    <string name="registerRedirectText">Nincs fiókod? Regisztrálj</string>
+    <string name="loginRedirectText">Már van fiókod? Bejelentkezés</string>
+    <string name="iconDescription">TODO</string>
 </resources>
