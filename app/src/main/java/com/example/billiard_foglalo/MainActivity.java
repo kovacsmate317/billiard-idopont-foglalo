@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
         password = findViewById(R.id.edittext2);
         loginBTN = findViewById(R.id.loginBTN);
 
-        loginBTN.setOnClickListener(view -> login(view));
+        loginBTN.setOnClickListener(this::login);
     }
 
     public void login(View view) {
@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
 
         if (user.isEmpty() || pass.isEmpty()) {
             Toast.makeText(this, "Please enter username and password", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "teszt commithoz csak", Toast.LENGTH_SHORT).show();
         } else {
             // Handle login logic here
             Toast.makeText(this, "Login Successful!", Toast.LENGTH_SHORT).show();
