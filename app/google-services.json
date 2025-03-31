@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "826165970631",
+    "project_id": "biliard-idopont-foglalo",
+    "storage_bucket": "biliard-idopont-foglalo.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:826165970631:android:dd36e1bcf579654936a0e2",
+        "android_client_info": {
+          "package_name": "com.example.billiard_foglalo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "826165970631-a4tc37efp0m87mgddkh1cnd8vq88vdqt.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.billiard_foglalo",
+            "certificate_hash": "e3be4fa4e9401ca5fbdf7a2cbacacaf50739dd7a"
+          }
+        },
+        {
+          "client_id": "826165970631-e93moe71v16i1r0festmvmm7p19uelr2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCnQwU0zPkjzXG5nythVghKDoyTsMA9lK8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "826165970631-e93moe71v16i1r0festmvmm7p19uelr2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

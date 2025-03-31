@@ -12,4 +12,8 @@
     <string name="registerRedirectText">Nincs fiókod? Regisztrálj</string>
     <string name="loginRedirectText">Már van fiókod? Bejelentkezés</string>
     <string name="iconDescription">TODO</string>
+    <string name="book_a_date">Válassz egy dátumot a foglaláshoz</string>
+    <string name="book">Foglalás</string>
+    <string name="sign_in_as_guest">Bejelentkezés vendégként</string>
+    <string name="login_as_guest">Bejelentkezés vendégként</string>
 </resources>
