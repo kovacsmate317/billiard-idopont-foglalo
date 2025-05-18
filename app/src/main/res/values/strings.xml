@@ -16,4 +16,10 @@
     <string name="book">Foglalás</string>
     <string name="sign_in_as_guest">Bejelentkezés vendégként</string>
     <string name="login_as_guest">Bejelentkezés vendégként</string>
+
+    <string-array name="game_types">
+        <item>Pool</item>
+        <item>Snooker</item>
+    </string-array>
+
 </resources>

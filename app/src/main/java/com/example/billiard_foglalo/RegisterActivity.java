@@ -14,7 +14,10 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
+import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
 public class RegisterActivity extends AppCompatActivity {
@@ -24,10 +27,9 @@ public class RegisterActivity extends AppCompatActivity {
     private EditText phoneTextInput;
     private EditText passwordTextInput;
     private EditText confirmPasswordTextInput;
-    private Button registerButton;
-    private Button loginRedirectButton;
 
     private FirebaseAuth auth;
+    private FirebaseFirestore db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,16 +40,15 @@ public class RegisterActivity extends AppCompatActivity {
         phoneTextInput = findViewById(R.id.phoneTextInput);
         passwordTextInput = findViewById(R.id.passwordTextInput);
         confirmPasswordTextInput = findViewById(R.id.confirmPasswordTextInput);
-        registerButton = findViewById(R.id.registerButton);
-        loginRedirectButton = findViewById(R.id.loginRedirectButton);
 
         auth = FirebaseAuth.getInstance();
+        db = FirebaseFirestore.getInstance();
     }
 
     public void registerUser(View view) {
-        String fullName = fullNameTextInput.getText().toString();
-        String email = emailTextInput.getText().toString();
-        String phone = phoneTextInput.getText().toString();
+        String fullName = fullNameTextInput.getText().toString().trim();
+        String email = emailTextInput.getText().toString().trim();
+        String phone = phoneTextInput.getText().toString().trim();
         String password = passwordTextInput.getText().toString();
         String confirmPassword = confirmPasswordTextInput.getText().toString();
 
@@ -71,10 +72,28 @@ public class RegisterActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
                     Log.d(LOG_TAG, "Felhasználó sikeresen regisztrálva");
-                    Toast.makeText(RegisterActivity.this, "Sikeres regisztráció!", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(RegisterActivity.this, BookingActivity.class);
-                    startActivity(intent);
-                    finish();
+
+                    String userId = Objects.requireNonNull(auth.getCurrentUser()).getUid();
+
+                    Map<String, Object> userData = new HashMap<>();
+                    userData.put("fullName", fullName);
+                    userData.put("email", email);
+                    userData.put("phone", phone);
+                    userData.put("reservations", new java.util.ArrayList<String>());
+
+                    db.collection("users").document(userId)
+                            .set(userData)
+                            .addOnSuccessListener(aVoid -> {
+                                Toast.makeText(RegisterActivity.this, "Sikeres regisztráció!", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(RegisterActivity.this, BookingActivity.class);
+                                startActivity(intent);
+                                finish();
+                            })
+                            .addOnFailureListener(e -> {
+                                Log.e(LOG_TAG, "Felhasználó adatainak mentése sikertelen", e);
+                                Toast.makeText(RegisterActivity.this, "Sikertelen adatmentés: " + e.getMessage(), Toast.LENGTH_LONG).show();
+                            });
+
                 } else {
                     try {
                         throw Objects.requireNonNull(task.getException());
@@ -92,6 +111,5 @@ public class RegisterActivity extends AppCompatActivity {
     public void redirectToLogin(View view) {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
-
     }
 }

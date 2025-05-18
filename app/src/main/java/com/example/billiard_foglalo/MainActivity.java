@@ -59,23 +59,22 @@ public class MainActivity extends AppCompatActivity {
         if (email.isEmpty() || pass.isEmpty()) {
             Toast.makeText(this, "Please enter username and password", Toast.LENGTH_SHORT).show();
         } else {
-            auth.signInWithEmailAndPassword(email,pass).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+            auth.signInWithEmailAndPassword(email, pass).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
-                    if(task.isSuccessful()){
+                    if (task.isSuccessful()) {
                         Log.d(LOG_TAG, "Sikeres bejelentkezés");
                         startBookingActivity();
-                    }else{
-                        Log.d(LOG_TAG, "Siketelen bejelentkezés");
+                        finish();
+                    } else {
+                        Log.d(LOG_TAG, "Sikertelen bejelentkezés");
+                        Toast.makeText(MainActivity.this, "Login failed. Please check your credentials.", Toast.LENGTH_SHORT).show();
                     }
                 }
             });
         }
     }
 
-    public void loginWithGoogle(View view){
-
-    }
 
     public void redirectToRegister(View view) {
         Intent intent = new Intent(this, RegisterActivity.class);

@@ -8,6 +8,20 @@
     android:background="?android:colorBackground"
     tools:context=".BookingActivity">
 
+    <Button
+        android:id="@+id/profileButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Profile"
+        android:textAllCaps="false"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:textColor="@color/primary"
+        android:padding="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
     <TextView
         android:id="@+id/titleText"
         android:layout_width="wrap_content"
@@ -30,24 +44,52 @@
 
     <Spinner
         android:id="@+id/timeSlotSpinner"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:minHeight="48dp"
         android:layout_marginTop="16dp"
         android:entries="@array/time_slots"
         app:layout_constraintTop_toBottomOf="@id/calendarView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
+    <Spinner
+        android:id="@+id/gameTypeSpinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="48dp"
+        android:layout_marginTop="16dp"
+        android:entries="@array/game_types"
+        app:layout_constraintTop_toBottomOf="@id/timeSlotSpinner"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/tableNumberSpinner" />
+
+    <Spinner
+        android:id="@+id/tableNumberSpinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="48dp"
+        android:layout_marginTop="16dp"
+        android:entries="@array/table_numbers"
+        app:layout_constraintTop_toBottomOf="@id/gameTypeSpinner"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/bookButton" />
+
     <Button
         android:id="@+id/bookButton"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:minHeight="48dp"
         android:text="@string/book"
         android:backgroundTint="@color/primary"
         android:textColor="@color/white"
         android:layout_marginTop="18dp"
+        android:layout_marginBottom="12dp"
         app:cornerRadius="50dp"
-        app:layout_constraintTop_toBottomOf="@id/timeSlotSpinner"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
